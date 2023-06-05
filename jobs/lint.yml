@@ -1,0 +1,12 @@
+parameters:
+- name: file
+  type: string
+
+jobs:
+- job: LintCode
+  displayName: Lint code
+  steps:
+    - script: |
+        az bicep build --file ${{parameters.file}}
+      name: LintBicepCode
+      displayName: Run Bicep linter
